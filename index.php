@@ -4,7 +4,11 @@
 	
 	echo $amazon->title = $amazon->xPathObj->query('//h1')->item(0)->nodeValue;  // Assigning title
 
-	echo "<br>";
+	echo "<hr>";
 
 	echo $amazon->price = $amazon->xPathObj->query('//span[@id="priceblock_saleprice"]')->item(0)->nodeValue;  // Assigning title
+
+	echo "<hr>";
+
+	var_dump($amazon);
 ?>
