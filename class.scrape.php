@@ -1,13 +1,21 @@
 <?php
+
+/**
+ * Class to Scrape Data from Website
+ * @author Faizan Ayubi
+ */
 class Scrape {
+
 	// Declaring class variables and arrays 
 	public $url;
 	public $source;
-	//public $baseUrl;
 	private $baseUrl;
 	private $parsedUrl = array();
 	
-	// Construct method called on instantiation of object
+	/**
+     * Construct method called on instantiation of object
+     * @param string $url the url to be scraped
+     */
 	function __construct($url) {
 		$this->url = $url;
 		// Setting URL attribute
@@ -17,9 +25,12 @@ class Scrape {
 		$this->baseUrl = $this->parsedUrl['scheme'] .'://' . $this->parsedUrl['host'];
 	}
 
-	// Method for making a GET request using cURL  
-
-	public function curlGet($url) {
+    /**
+     * Method for making a GET request using cURL
+     * @param string $url the url to be scraped
+     * @return string        results
+     */
+    public function curlGet($url) {
 		$ch = curl_init(); // Initialising cURL session    
 		// Setting cURL options
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  // Returning transfer as a string    
@@ -29,7 +40,11 @@ class Scrape {
     	return $results;  // Return the results  
     }
 
-    // Method to return XPath object
+    /**
+     * Method to return XPath object
+     * @param  string $item the html object
+     * @return object       the XPath object
+     */
     public function returnXPathObject($item) {
     	$xmlPageDom = new DomDocument();  // Instantiating a new DomDocument object
     	@$xmlPageDom->loadHTML($item);  // Loading the HTML from downloaded page    
@@ -37,7 +52,13 @@ class Scrape {
     	return $xmlPageXPath;  // Returning XPath object
     }
 
-    // Method to submit form using cURL POST method 
+    /**
+     * Method to submit form using cURL POST method 
+     * @param  string $postUrl       the url where we have to send request
+     * @param  string $postFields    the parameters
+     * @param  string $successString success string
+     * @return string                final result
+     */
     public function curlPost($postUrl, $postFields, $successString) {
     	$useragent = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3';
     	// Setting user agent of a popular browser    
@@ -66,4 +87,4 @@ class Scrape {
     }
 }
 
-?> 
+?>
