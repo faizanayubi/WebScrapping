@@ -1,6 +1,7 @@
 # WebScrapping
 A PHP Script for scrapping website with Object Oriented Way, The main Technology used is CURL. the example below shows step by step instructions to scrape Amazon
-![WebScrapping](https://github.com/faizanayubi/WebScrapping/blob/master/Output.png?raw=true)
+
+![WebScrapping](https://github.com/faizanayubi/WebScrapping/blob/master/Output.PNG?raw=true)
 
 ### Example: Scrapping Amazon Products ###
 1. include the class
@@ -25,4 +26,4 @@ $amazon->price = $amazon->xPathObj->query('//span[@id="priceblock_saleprice"]')-
 ```
 
 ### Result ###
-![WebScrapping](https://github.com/faizanayubi/WebScrapping/blob/master/Output.png?raw=true)
+![WebScrapping](https://github.com/faizanayubi/WebScrapping/blob/master/Output.PNG?raw=true)
